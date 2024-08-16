@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "../include/help.h"
+#include "../include/init.h"
 
 int main(int argc, char *argv[]) {
 
