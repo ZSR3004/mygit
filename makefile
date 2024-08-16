@@ -16,7 +16,7 @@ SRCS = $(wildcard $(SRC_DIR)/*.c)
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # Output binary
-OUTPUT = $(BIN_DIR)/program
+OUTPUT = $(BIN_DIR)/mygit
 
 # Default target
 all: directories $(OUTPUT)
@@ -35,7 +35,7 @@ $(OUTPUT): $(OBJS)
 
 # Run program
 run:
-	./bin/program
+	./bin/mygit
 
 # Clean target
 clean:
