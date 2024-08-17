@@ -2,7 +2,7 @@
 
 void gen_help(void) {
 
-    printf("placeholder\n");
+    printf("general help placeholder\n");
 
     return;
 
