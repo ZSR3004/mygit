@@ -1,3 +1,5 @@
 .vscode
 
 /bin
+
+/tests/test_repo_one/.mygit
