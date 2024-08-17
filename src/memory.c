@@ -1,13 +1,23 @@
 #include "../include/memory.h"
 
-void create_directory(char* path, int permissions) {
-    int status = mkdir(path, permissions);
+const int STANDARD_PERM = 0755;
+
+void create_directory(char* path) {
+    int status = mkdir(path, STANDARD_PERM);
 
     if (status != 0) {
         printf("Error creating directory.\n");
         exit(1);
     }
 
+}
+
+void create_file(char* path, char* mode) {
+    FILE* file = fopen(path, mode);
+    if (file == NULL) {
+        printf("Failed to create the file.\n");
+        exit(1);
+    }
 }
 
 FILE *open_file(char *path, char *state) {

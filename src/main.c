@@ -18,8 +18,8 @@ int main(int argc, char *argv[]) {
         strcpy(command, argv[1]);
         if (strcmp(command, "init") == 0) {
             init_mygit_directory();
-        } else if (strcmp(command, "add")== 0) {
-
+        } else if (strcmp(command, "add") == 0) {
+            index_file(argv[2]);
         } else if (strcmp(command, "commit") == 0) {
             //code
         } else if (strcmp(command, "log") == 0) {

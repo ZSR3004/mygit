@@ -57,11 +57,14 @@ void index_file(char *path) {
     FILE *file = open_file(path, "r");
 
     char *blob = create_blob(file);
+    close_file(file);
+
     char *blob_hash = hash_function(blob);
-    
     char *index_path = create_index_location(blob_hash);
 
-    close_file(file);
+    create_directory(index_path);
+
+
     
 }
 

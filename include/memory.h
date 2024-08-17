@@ -7,7 +7,7 @@
 #include <sys/types.h>
 
 
-void create_directory(char* path, int permissions);
+void create_directory(char* path);
 
 FILE *open_file(char *path, char *state);
 
