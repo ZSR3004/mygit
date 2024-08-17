@@ -12,9 +12,9 @@
 int main(int argc, char *argv[]) {
 
     if (argc == 1) { // Used for debugging, normally would print instructions for basic use
-        // gen_help();
+        gen_help();
         
-        index_file("tests/test_repo_one/src/main.c");
+        // index_file("tests/test_repo_one/src/main.c");
 
     } else if (argc > 1) {
         switch (argv[1][0]) {

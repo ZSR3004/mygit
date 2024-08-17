@@ -11,5 +11,4 @@ void init_mygit_directory(void) {
     create_directory(".mygit/refs/heads", STANDARD_PERM);
     create_directory(".mygit/HEAD", STANDARD_PERM);
 
-
 }
