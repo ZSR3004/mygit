@@ -8,6 +8,8 @@
 #include "memory.h"
 #include "hash.h"
 
+void index_cases(char *path);
+
 char *get_file_name(char *path);
 
 char *create_blob(FILE *file);

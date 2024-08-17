@@ -2,6 +2,16 @@
 
 const int SIZE_BUFFER = 20;
 
+void index_cases(char *path) {
+
+    if (strcmp(path, ".")) {
+        
+    } else if (path[strlen(path) - 1] == '*') {
+        
+    }
+
+}
+
 char *get_file_name(char *path) {
 
     char *file_name = strrchr(path, '/');
