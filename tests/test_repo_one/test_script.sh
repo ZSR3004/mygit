@@ -1,6 +1,8 @@
 #!/bin/bash
 
-
-mygit=./../../bin/mygit
-
-$mygit init
+if [ "$1" = "clean" ]; then
+    rm -rf .mygit
+else
+    mygit=./../../bin/mygit
+    $mygit init
+fi

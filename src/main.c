@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
     } else if (argc > 1) {
         switch (argv[1][0]) {
             case 'i':
+            
                 init_mygit_directory();
 
             case 'c':
