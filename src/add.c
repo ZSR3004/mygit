@@ -64,7 +64,15 @@ void index_file(char *path) {
 
     create_directory(index_path);
 
+    char *final_path = malloc(strlen(index_path) + strlen(blob_hash) - 1);
+    strcpy(final_path, index_path);
+    strcat(final_path, "/");
+    strcat(final_path, &blob_hash[2]);
+    strcat(final_path, ".txt");
 
-    
+    FILE *final_file = open_file(final_path, "w");
+    fwrite(blob, sizeof(char), strlen(blob), final_file);
+    close_file(final_file);
+
 }
 
