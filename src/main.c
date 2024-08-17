@@ -11,28 +11,22 @@
 
 int main(int argc, char *argv[]) {
 
-    if (argc == 1) { // Used for debugging, normally would print instructions for basic use
+    if (argc == 1) {
         gen_help();
-        
-        // index_file("tests/test_repo_one/src/main.c");
-
     } else if (argc > 1) {
-        switch (argv[1][0]) {
-            case 'i':
-            
-                init_mygit_directory();
+        char command[100];
+        strcpy(command, argv[1]);
+        if (strcmp(command, "init") == 0) {
+            init_mygit_directory();
+        } else if (strcmp(command, "add")== 0) {
 
-            case 'c':
-                
-                break;
-            case 'l':
-               
-                break;
-            default:
-
-                break;
+        } else if (strcmp(command, "commit") == 0) {
+            //code
+        } else if (strcmp(command, "log") == 0) {
+            // code
+        } else {
+            // code
         }
-
     }
 
     return 0;
