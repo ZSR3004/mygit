@@ -40,6 +40,7 @@ run:
 # Clean target
 clean:
 	rm -rf $(OBJ_DIR)/*.o $(OUTPUT)
+	rm -rf .mygit
 
 # Phony targets
 .PHONY: all clean directories
