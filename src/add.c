@@ -25,12 +25,6 @@ char *get_file_name(char *path) {
 
 }
 
-/*
- * !! This function is ommiting the last line of the file.
- * 
- * TODO: Fix the last line issue; likely resides in this function.
- * TODO: Add error handling if the hash ends up being two or less.
-*/
 char *create_blob(FILE *file) {
 
     char *file_text = get_file_text(file);
