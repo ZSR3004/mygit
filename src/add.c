@@ -6,7 +6,7 @@ void index_cases(char *path) {
 
     if (strcmp(path, ".")) {
         
-    } else if (path[strlen(path) - 1] == '*') {
+    } else {
         
     }
 

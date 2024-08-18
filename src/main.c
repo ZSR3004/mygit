@@ -19,7 +19,8 @@ int main(int argc, char *argv[]) {
         if (strcmp(command, "init") == 0) {
             init_mygit_directory();
         } else if (strcmp(command, "add") == 0) {
-            index_file(argv[2]);
+            // index_file(argv[2]);
+            print_directory("/home/zsr/curr_proj/mygit/tests/test_repo_one");
         } else if (strcmp(command, "commit") == 0) {
             //code
         } else if (strcmp(command, "log") == 0) {

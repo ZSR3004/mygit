@@ -8,6 +8,8 @@
 #include "memory.h"
 #include "hash.h"
 
+void print_directory(char *path);
+
 void index_cases(char *path);
 
 char *get_file_name(char *path);
