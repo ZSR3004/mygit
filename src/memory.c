@@ -20,6 +20,17 @@ void create_file(char* path, char* mode) {
     }
 }
 
+DIR *open_directory (char* path) {
+
+    DIR* directory = opendir(path);
+    if (directory == NULL) {
+        printf("Failed to open directory.\n");
+        exit(1);
+    }
+    return directory;
+
+}
+
 FILE *open_file(char *path, char *state) {
     FILE *file = fopen(path, state);
     if (file == NULL) {
@@ -63,6 +74,11 @@ char *get_file_text(FILE *file) {
 
     return file_contents;
    
+}
+
+void close_directory(DIR *directory) {
+    closedir(directory);
+    return;
 }
 
 void close_file(FILE *file) {

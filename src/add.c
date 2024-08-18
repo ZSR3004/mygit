@@ -6,8 +6,10 @@ void index_cases(char *path) {
 
     if (strcmp(path, ".")) {
         
+    } else if (strcmp(path[0], "/")) {
+        open_directory(path);
     } else {
-        
+        open_file(path);
     }
 
 }
