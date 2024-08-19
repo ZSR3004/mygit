@@ -7,6 +7,7 @@
 
 #include "memory.h"
 #include "hash.h"
+#include "ignore.h"
 
 void index_cases(char *path);
 

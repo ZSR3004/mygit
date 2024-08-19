@@ -72,6 +72,7 @@ char *create_index_location(char *blob_hash) {
 void index_directory(char *path) {
 
     DIR *dir = open_directory(path);
+    ignoreList *iL = build_ignoreList();
     char* subdir_path;
     dirent *entry;
 
@@ -84,9 +85,11 @@ void index_directory(char *path) {
         strcat(curr_path, "/");
         strcat(curr_path, entry->d_name);
 
+        if (in_ignoreList(iL, entry->d_name) != 0) continue;
+        
         if (entry->d_type == FILE_ENUM) {
             index_file(curr_path);
-        } else if (entry->d_type == DIR_ENUM) {
+        } else if (entry->d_type == DIR_ENUM && !(in_ignoreList(iL, entry->d_name) == 0)) {
             subdir_path = malloc(strlen(path) + strlen(entry->d_name) + SIZE_BUFFER);
             strcpy(subdir_path, path);
             strcat(subdir_path, "/");
