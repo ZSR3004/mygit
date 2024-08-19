@@ -1,5 +1,14 @@
 #include "../include/hash.h"
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 char *hash_function(const char *str) {
 
     size_t len = strlen(str);

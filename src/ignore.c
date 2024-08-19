@@ -5,6 +5,15 @@
 const int INIT_CAPACITY = 10;
 const int GROWTH_FACTOR = 1.5;
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 ignoreList *init_ignoreList() {
 
     ignoreList *iL = malloc(sizeof(ignoreList));
@@ -16,6 +25,15 @@ ignoreList *init_ignoreList() {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 ignoreList *grow_ignoreList(ignoreList *iL) {
 
     iL->capacity *= GROWTH_FACTOR;
@@ -24,6 +42,15 @@ ignoreList *grow_ignoreList(ignoreList *iL) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void insert_ignoreList(ignoreList *iL, char *item) {
 
     if (iL->count + 1 > iL->capacity) {
@@ -37,6 +64,15 @@ void insert_ignoreList(ignoreList *iL, char *item) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 ignoreList *build_ignoreList() {
 
     ignoreList *iL = init_ignoreList();
@@ -61,6 +97,15 @@ ignoreList *build_ignoreList() {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 bool in_ignoreList(ignoreList *iL, char *item) {
 
     for (int i = 0; i < iL->count; i++) {
@@ -73,6 +118,15 @@ bool in_ignoreList(ignoreList *iL, char *item) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void debug_print_ignoreList(ignoreList *iL) {
 
     printf("Ignore List:\n");
@@ -82,6 +136,15 @@ void debug_print_ignoreList(ignoreList *iL) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void free_ignoreList(ignoreList *iL) {
 
     free(iL->arr);

@@ -7,6 +7,15 @@ const int DIR_ENUM = 4;
 const int FILE_ENUM = 8;
 
 
+/**
+ * @brief Indexes the cases based on the given path.
+ *
+ * Indexes cases based on provided path where "." represents current working directory. 
+ * If a "/" is the first character of the path, then this function treats it as a directory, 
+ * otherwise it treats it like a file.
+ *
+ * @param path Path to be indexed.
+ */
 void index_cases(char *path) {
 
     if (strcmp(path, ".") == 0) {
@@ -21,6 +30,15 @@ void index_cases(char *path) {
 
 }
 
+/**
+ * @brief Gets the name of a file.
+ * 
+ * Returns a string representing the file name at path.
+ * 
+ * @param path Path to be indexed.
+ * 
+ * @return The name of file.
+ */
 char *get_file_name(char *path) {
 
     char *file_name = strrchr(path, '/');
@@ -34,6 +52,13 @@ char *get_file_name(char *path) {
 
 }
 
+/**
+ * @brief
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 char *create_blob(FILE *file) {
 
     char *file_text = get_file_text(file);
@@ -53,6 +78,15 @@ char *create_blob(FILE *file) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 char *create_index_location(char *blob_hash) {
 
 
@@ -66,9 +100,15 @@ char *create_index_location(char *blob_hash) {
 
 }
 
-/*
- * ! Possible issue when the first few characters of file match another file; further examination required.
-*/
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ *  (issue w/ first few char)
+ * @return 
+ */
 void index_directory(char *path) {
 
     DIR *dir = open_directory(path);
@@ -84,7 +124,7 @@ void index_directory(char *path) {
         strcpy(curr_path, path);
         strcat(curr_path, "/");
         strcat(curr_path, entry->d_name);
-        
+
         if (entry->d_type == FILE_ENUM) {
             index_file(curr_path);
         } else if (entry->d_type == DIR_ENUM) {
@@ -106,6 +146,15 @@ void index_directory(char *path) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void index_file(char *path) {
 
     

@@ -1,5 +1,14 @@
 #include "../include/init.h"
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void init_mygit_directory(void) {
 
     create_directory(".mygit");

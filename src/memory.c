@@ -3,6 +3,15 @@
 
 const int STANDARD_PERM = 0755;
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void create_directory(char* path) {
 
     if (access(path, F_OK) == 0) return;
@@ -15,6 +24,15 @@ void create_directory(char* path) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void create_file(char* path, char* mode) {
     FILE* file = fopen(path, mode);
     if (file == NULL) {
@@ -23,6 +41,15 @@ void create_file(char* path, char* mode) {
     }
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 char *get_cwd(void) {
 
     char *cwd = (char *)malloc(100);
@@ -36,6 +63,15 @@ char *get_cwd(void) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 DIR *open_directory (char* path) {
 
     DIR* directory = opendir(path);
@@ -47,6 +83,15 @@ DIR *open_directory (char* path) {
 
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 FILE *open_file(char *path, char *state) {
     FILE *file = fopen(path, state);
     if (file == NULL) {
@@ -56,6 +101,15 @@ FILE *open_file(char *path, char *state) {
     return file;
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 unsigned long get_file_size(FILE *file) {
     fseek(file, 0, SEEK_END);
     long file_size = ftell(file);
@@ -63,6 +117,15 @@ unsigned long get_file_size(FILE *file) {
     return file_size;
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 size_t copy_file_to_string(char *file_contents, long unsigned file_size, FILE *file) {
     size_t bytes_read = fread(file_contents, 1, file_size, file);
     if (bytes_read != file_size) {
@@ -74,6 +137,15 @@ size_t copy_file_to_string(char *file_contents, long unsigned file_size, FILE *f
     return bytes_read;
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 char *get_file_text(FILE *file) {
 
     long unsigned file_size = get_file_size(file);
@@ -92,11 +164,29 @@ char *get_file_text(FILE *file) {
    
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void close_directory(DIR *directory) {
     closedir(directory);
     return;
 }
 
+/**
+ * @brief
+ * 
+ * 
+ * 
+ * @parameter
+ * 
+ * @return 
+ */
 void close_file(FILE *file) {
     fclose(file);
     return;

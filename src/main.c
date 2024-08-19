@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[]) {
 
-    if (argc == 1) { // used for debugging at the moment; usually takes you to the general help menue
+    if (argc == 1) { // used for debugging at the moment; usually takes you to the general help menu
         gen_help();
     } else if (argc > 1) {
         char command[100];
