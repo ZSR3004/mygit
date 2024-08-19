@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+typedef struct dirent dirent;
 
 void create_directory(char* path);
 

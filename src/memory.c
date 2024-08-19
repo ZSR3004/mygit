@@ -1,10 +1,13 @@
 #include "../include/memory.h"
+#include <unistd.h>
 
 const int STANDARD_PERM = 0755;
 
 void create_directory(char* path) {
-    int status = mkdir(path, STANDARD_PERM);
 
+    if (access(path, F_OK) == 0) return;
+
+    int status = mkdir(path, STANDARD_PERM);
     if (status != 0) {
         printf("Error creating directory.\n");
         exit(1);

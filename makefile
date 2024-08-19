@@ -42,5 +42,10 @@ clean:
 	rm -rf $(OBJ_DIR)/*.o $(OUTPUT)
 	rm -rf .mygit
 
+test:
+	make clean
+	make
+	./tests/test_repo_one/test_script.sh 2
+
 # Phony targets
 .PHONY: all clean directories

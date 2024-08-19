@@ -13,14 +13,15 @@ int main(int argc, char *argv[]) {
 
     if (argc == 1) { // used for debugging at the moment; usually takes you to the general help menue
         // gen_help();
-        
+
     } else if (argc > 1) {
         char command[100];
         strcpy(command, argv[1]);
         if (strcmp(command, "init") == 0) {
             init_mygit_directory();
         } else if (strcmp(command, "add") == 0) {
-            index_cases(argv[1]);
+            index_directory(argv[2]);
+            // index_cases(argv[2]);
         } else if (strcmp(command, "commit") == 0) {
             //code
         } else if (strcmp(command, "log") == 0) {

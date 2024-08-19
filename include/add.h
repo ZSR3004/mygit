@@ -8,15 +8,15 @@
 #include "memory.h"
 #include "hash.h"
 
-void print_directory(char *path);
-
 void index_cases(char *path);
 
 char *get_file_name(char *path);
 
 char *create_blob(FILE *file);
 
-char *create_index(char *blob_hash);
+char *create_index_location(char *blob_hash);
+
+void index_directory(char *path);
 
 void index_file(char *path);
 
