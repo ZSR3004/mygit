@@ -84,12 +84,10 @@ void index_directory(char *path) {
         strcpy(curr_path, path);
         strcat(curr_path, "/");
         strcat(curr_path, entry->d_name);
-
-        if (in_ignoreList(iL, entry->d_name) != 0) continue;
         
         if (entry->d_type == FILE_ENUM) {
             index_file(curr_path);
-        } else if (entry->d_type == DIR_ENUM && !(in_ignoreList(iL, entry->d_name) == 0)) {
+        } else if (entry->d_type == DIR_ENUM) {
             subdir_path = malloc(strlen(path) + strlen(entry->d_name) + SIZE_BUFFER);
             strcpy(subdir_path, path);
             strcat(subdir_path, "/");
@@ -102,6 +100,7 @@ void index_directory(char *path) {
 
     }
 
+    free_ignoreList(iL);
     close_directory(dir);
     return;
 
