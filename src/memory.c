@@ -9,7 +9,7 @@ void create_directory(char* path) {
 
     int status = mkdir(path, STANDARD_PERM);
     if (status != 0) {
-        printf("Error creating directory.\n");
+        printf("Error creating directory: %s\n", path);
         exit(1);
     }
 
@@ -18,16 +18,29 @@ void create_directory(char* path) {
 void create_file(char* path, char* mode) {
     FILE* file = fopen(path, mode);
     if (file == NULL) {
-        printf("Failed to create the file.\n");
+        printf("Failed to create the file: %s\n", path);
         exit(1);
     }
+}
+
+char *get_cwd(void) {
+
+    char *cwd = (char *)malloc(100);
+    if (getcwd(cwd, 100) != NULL) {
+        return cwd;
+    } else {
+        printf("Failed to get current working directory.\n");
+        free(cwd);
+        exit(1);
+    }
+
 }
 
 DIR *open_directory (char* path) {
 
     DIR* directory = opendir(path);
     if (directory == NULL) {
-        printf("Failed to open directory.\n");
+        printf("Failed to open directory: %s\n", path);
         exit(1);
     }
     return directory;
@@ -37,7 +50,7 @@ DIR *open_directory (char* path) {
 FILE *open_file(char *path, char *state) {
     FILE *file = fopen(path, state);
     if (file == NULL) {
-        printf("Failed to open the file.\n");
+        printf("Failed to open the file: %s\n", path);
         exit(1);
     }
     return file;

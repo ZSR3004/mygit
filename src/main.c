@@ -20,8 +20,7 @@ int main(int argc, char *argv[]) {
         if (strcmp(command, "init") == 0) {
             init_mygit_directory();
         } else if (strcmp(command, "add") == 0) {
-            index_directory(argv[2]);
-            // index_cases(argv[2]);
+            index_cases(argv[2]);
         } else if (strcmp(command, "commit") == 0) {
             //code
         } else if (strcmp(command, "log") == 0) {

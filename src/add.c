@@ -6,14 +6,13 @@ const int SIZE_BUFFER = 100;
 const int DIR_ENUM = 4;
 const int FILE_ENUM = 8;
 
-/*
- * TODO: make it differentiate between dir and file.
-*/
+
 void index_cases(char *path) {
 
     if (strcmp(path, ".") == 0) {
-        printf("mygit does not support this feature yet.\n");
-        exit(1);
+        char *cwd = get_cwd();
+        index_directory(cwd);
+        free(cwd);
     } else if (strcmp(path, "/") == 0) {
         index_directory(path);
     } else {

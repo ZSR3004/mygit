@@ -13,6 +13,8 @@ void create_directory(char* path);
 
 void create_file(char* path, char* mode);
 
+char *get_cwd(void);
+
 DIR *open_directory (char* path);
 
 FILE *open_file(char *path, char *state);
