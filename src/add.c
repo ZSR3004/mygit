@@ -11,10 +11,10 @@ const int FILE_ENUM = 8;
 */
 void index_cases(char *path) {
 
-    if (strcmp(path, ".")) {
+    if (strcmp(path, ".") == 0) {
         printf("mygit does not support this feature yet.\n");
         exit(1);
-    } else if (strcmp(path[0], "/")) {
+    } else if (strcmp(path, "/") == 0) {
         index_directory(path);
     } else {
         index_file(path);
@@ -57,9 +57,9 @@ char *create_blob(FILE *file) {
 char *create_index_location(char *blob_hash) {
 
 
-    char *path = malloc(strlen(".mygit/index/") + sizeof(char) * 2 + 1);
+    char *path = malloc(strlen(".mygit/objects/") + sizeof(char) * 2 + 1);
 
-    strcpy(path, ".mygit/index/");
+    strcpy(path, ".mygit/objects/");
     strncat(path, &blob_hash[0], 1);
     strncat(path, &blob_hash[1], 1);
 
@@ -126,7 +126,7 @@ void index_file(char *path) {
     strcat(final_path, ".txt");
 
     FILE *final_file = open_file(final_path, "w");
-    size_t bytes_written = fwrite(blob, sizeof(char), strlen(blob), final_file);
+    fwrite(blob, sizeof(char), strlen(blob), final_file);
 
     free(final_path);
     free(index_path);
@@ -134,6 +134,4 @@ void index_file(char *path) {
     free(blob);
     close_file(final_file);
 
-
 }
-
