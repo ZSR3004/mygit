@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *hash_function(char* str);
+#include "memory.h"
+
+char *hash_function(const char* str);
 
 #endif // HASH_H
