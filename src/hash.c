@@ -1,13 +1,14 @@
 #include "../include/hash.h"
 
 /**
- * @brief
+ * @brief Hash function.
  * 
+ * Converts each character of a string into its hexadecimal representation, 
+ * then concatenates each hexadecimal.
  * 
+ * @param str The string to be hashed.
  * 
- * @parameter
- * 
- * @return 
+ * @return Hashed string.
  */
 char *hash_function(const char *str) {
 

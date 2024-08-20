@@ -8,6 +8,21 @@
 
 #include "memory.h"
 
+/*
+ * If iL is a valid representation of an ignoreList, then
+ * iL represents [x_0, x_1,...,x_{iL->count}].
+ * 
+ * iL->arr represents an array of size iL->capacity which holds
+ * il->count items.
+ * 
+ * An ignoreList is simply a dynamic array of strings. It's titled as
+ * "ignoreList" since its only purpose in mygit is to handle data access
+ * for .mygitignore.
+ * 
+ * Invariants:
+ *      iL->count <= iL->capacity
+ * 
+*/
 typedef struct {
     char **arr;
     int count;

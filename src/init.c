@@ -1,13 +1,8 @@
 #include "../include/init.h"
 
 /**
- * @brief
+ * @brief Creates the .mygit directory.
  * 
- * 
- * 
- * @parameter
- * 
- * @return 
  */
 void init_mygit_directory(void) {
 

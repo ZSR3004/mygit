@@ -1,18 +1,23 @@
 #include "../include/ignore.h"
 
-#define GROW_CAPACITY ()
-
+/**
+ * @brief Constants needed for handling memory allocation of the ignoreList.
+ * 
+ * @todo Move these defintions to the header file so the ignoreList representation
+ *          is more complete.
+ * 
+ */
 const int INIT_CAPACITY = 10;
 const int GROWTH_FACTOR = 1.5;
 
 /**
- * @brief
+ * @brief Inits an ignoreList.
  * 
+ * Allocates memory for the ignoreList, iL. Inits with 
+ * iL->capacity = INIT_CAPACITY = 10.
  * 
+ * @return A valid representation of an ignoreList.
  * 
- * @parameter
- * 
- * @return 
  */
 ignoreList *init_ignoreList() {
 
@@ -26,13 +31,15 @@ ignoreList *init_ignoreList() {
 }
 
 /**
- * @brief
+ * @brief Grows the capacity of an ignoreList.
  * 
+ * Re-allocates memory for the ignoreList to grow it by 
+ * GROWTH_FACTOR = 1.5.
  * 
+ * @param iL Valid ignoreList.
  * 
- * @parameter
+ * @return The re-allocated ignoreList.
  * 
- * @return 
  */
 ignoreList *grow_ignoreList(ignoreList *iL) {
 
@@ -43,13 +50,11 @@ ignoreList *grow_ignoreList(ignoreList *iL) {
 }
 
 /**
- * @brief
+ * @brief Inserts an item into the ignoreList.
  * 
+ * @param iL Valid ignoreList.
+ * @param item The item to be inserted.
  * 
- * 
- * @parameter
- * 
- * @return 
  */
 void insert_ignoreList(ignoreList *iL, char *item) {
 
@@ -65,13 +70,13 @@ void insert_ignoreList(ignoreList *iL, char *item) {
 }
 
 /**
- * @brief
+ * @brief Creates an ignoreList based on .mygitignore.
  * 
+ * Inits an ignoreList containing the files and directories detailed in
+ * the local .mygitignore file. 
  * 
- * 
- * @parameter
- * 
- * @return 
+ * @return A valid representation of an ignoreList.
+ *  
  */
 ignoreList *build_ignoreList() {
 
@@ -98,13 +103,14 @@ ignoreList *build_ignoreList() {
 }
 
 /**
- * @brief
+ * @brief Determines if an item is in the ignoreList.
  * 
+ * @param iL Valid ignoreList.
+ * @param item The item to look for.
  * 
+ * @return  true if item is in iL
+ *          else, false.
  * 
- * @parameter
- * 
- * @return 
  */
 bool in_ignoreList(ignoreList *iL, dirent *item) {
 
@@ -119,13 +125,12 @@ bool in_ignoreList(ignoreList *iL, dirent *item) {
 }
 
 /**
- * @brief
+ * @brief Prints the ignoreList.
  * 
+ * Prints iL, mostly for debugging purposes.
  * 
+ * @param iL Valid ignoreList.
  * 
- * @parameter
- * 
- * @return 
  */
 void debug_print_ignoreList(ignoreList *iL) {
 
@@ -137,13 +142,10 @@ void debug_print_ignoreList(ignoreList *iL) {
 }
 
 /**
- * @brief
+ * @brief Frees allocated memory for ignoreList.
  * 
- * 
- * 
- * @parameter
- * 
- * @return 
+ * @param iL Valid ignoreList.
+ *
  */
 void free_ignoreList(ignoreList *iL) {
 

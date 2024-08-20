@@ -1,11 +1,22 @@
 #include "../include/add.h"
 
+/**
+ * @brief Extra space for when creating a string.
+ * 
+ * @todo Move this definition to a file so other libraries like 
+ * memory.h can access it.
+ *
+ */
 const int SIZE_BUFFER = 100;
 
-// Enumeration for the d_type attribute in the directory library
+/**
+ * @brief Enumeration for the d_type attribute in the directory library
+ * 
+ * @todo Edit directory index function to support the library's native comparison.
+ * 
+*/
 const int DIR_ENUM = 4;
 const int FILE_ENUM = 8;
-
 
 /**
  * @brief Indexes the cases based on the given path.
@@ -53,11 +64,17 @@ char *get_file_name(char *path) {
 }
 
 /**
- * @brief
+ * @brief Creates blob object.
  * 
- * @parameter
+ * Generates a string version of the blob object for the file parameter. Each string begins with
+ * "blob\tx bytes\n", where x is the number of bytes the file takes up. Each subsequent line is simply
+ * a copy of the file.
  * 
- * @return 
+ * Opening and closing the file are done through external functions.
+ * 
+ * @param file File to be copied into a blob object.
+ * 
+ * @return A string representation of the blob object.
  */
 char *create_blob(FILE *file) {
 
@@ -79,13 +96,16 @@ char *create_blob(FILE *file) {
 }
 
 /**
- * @brief
+ * @brief Creates the file path for a blob object.
  * 
+ * Creates the file path that the blob object (represented by the hash) to be written into.
+ * The object will always be placed in (".mygit/objects/" + blob_hash[0:1]). In other words,
+ * all blobs are placed in a directory titled with the first two values of the hash in the 
+ * .mygit/objects directory.
  * 
+ * @param blob_hash A valid representation of a blob's hash function.
  * 
- * @param
- * 
- * @return 
+ * @return The path in which the blob will be placed.
  */
 char *create_index_location(char *blob_hash) {
 
@@ -101,13 +121,16 @@ char *create_index_location(char *blob_hash) {
 }
 
 /**
- * @brief
+ * @brief Indexes a directory when added using the mygit add command.
  * 
+ * Indexes directories by either indexing any files in the directory or 
+ * entering a subdirectory through recursive calling.
  * 
- * 
- * @parameter
+ * @param path The path given by the user in the mygit add command.
  *  (issue w/ first few char)
- * @return 
+ * 
+ * @bug May add a file twice if its name is similar to another file's.
+ * 
  */
 void index_directory(char *path) {
 
@@ -147,13 +170,13 @@ void index_directory(char *path) {
 }
 
 /**
- * @brief
+ * @brief Indexes a file.
  * 
+ * Creates a blob object for the file at the path and adds it 
+ * to the index table.
  * 
- *  
- * @parameter
+ * @param path The path for the file to be indexed.
  * 
- * @return 
  */
 void index_file(char *path) {
     
