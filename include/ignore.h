@@ -9,6 +9,12 @@
 #include "file.h"
 
 /*
+ * I think there may be worth in just making this a generic dyanmic array. Need to see how index list 
+ * and this interact on the interact on an implementation level.
+ * 
+*/
+
+/*
  * If iL is a valid representation of an ignoreList, then
  * iL represents [x_0, x_1,...,x_{iL->count}].
  * 

@@ -1,5 +1,13 @@
 #include "../include/add.h"
 
+// indexTable is in the index file. 
+
+/*
+ * Need to move stuff around so object creation, building, and freeing are done in the objects file.
+ * 
+ * This file does one thing: stage objects. Clean up how the strings are made.
+*/
+
 /**
  * @brief Extra space for when creating a string.
  * 
@@ -60,38 +68,6 @@ char *get_file_name(char *path) {
     }
 
     return file_name;
-
-}
-
-/**
- * @brief Creates blob object.
- * 
- * Generates a string version of the blob object for the file parameter. Each string begins with
- * "blob\tx bytes\n", where x is the number of bytes the file takes up. Each subsequent line is simply
- * a copy of the file.
- * 
- * Opening and closing the file are done through external functions.
- * 
- * @param file File to be copied into a blob object.
- * 
- * @return A string representation of the blob object.
- */
-char *create_blob(FILE *file) {
-
-    char *file_text = get_file_text(file);
-    unsigned long int_file_size = get_file_size(file);
-
-    char *char_file_size = malloc((int_file_size * 4 + SIZE_BUFFER) * sizeof(char));
-    sprintf(char_file_size, "%lu", int_file_size);
-
-    size_t blob_size = strlen(file_text) + sizeof("blob") + SIZE_BUFFER;
-    char *blob = malloc((blob_size + 1) * sizeof(char));
-    snprintf(blob, blob_size + 1, "blob\t%s bytes \n%s", char_file_size, file_text);
-
-    free(char_file_size);
-    free(file_text);
-
-    return blob;
 
 }
 
