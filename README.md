@@ -9,7 +9,7 @@ The second phase seeks to improve on Git's design by simplfying some of these pr
 - [Building this Project](#building-this-project)
 - [Project Motivation](#project-motivation)
 - [Scope of Clone](#scope-of-clone)
-- [Contact Infromation](#contact-ziyad-rahman)
+- [Contact Information](#contact-ziyad-rahman)
 
 ## Building this Project
 To build this project, make sure you have Git installed on your machine.
