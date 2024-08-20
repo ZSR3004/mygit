@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "memory.h"
+#include "file.h"
 
 char *hash_function(const char* str);
 

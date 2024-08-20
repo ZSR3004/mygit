@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "memory.h"
+#include "file.h"
 #include "hash.h"
 #include "ignore.h"
 

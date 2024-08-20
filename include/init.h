@@ -1,7 +1,7 @@
 #ifndef INIT_H
 #define INIT_H
 
-#include "memory.h"
+#include "file.h"
 
 void init_mygit_directory(void);
 

@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "memory.h"
+#include "file.h"
 
 /*
  * If iL is a valid representation of an ignoreList, then

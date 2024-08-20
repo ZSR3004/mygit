@@ -4,7 +4,7 @@
 #include <string.h>
 
 #include "../include/help.h"
-#include "../include/memory.h"
+#include "../include/file.h"
 #include "../include/init.h"
 #include "../include/hash.h"
 #include "../include/add.h"
