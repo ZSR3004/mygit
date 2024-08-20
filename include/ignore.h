@@ -22,7 +22,7 @@ void insert_ignoreList(ignoreList *iL, char *item);
 
 ignoreList *build_ignoreList(void);
 
-bool in_ignoreList(ignoreList *iL, char *item);
+bool in_ignoreList(ignoreList *iL, dirent *item);
 
 void debug_print_ignoreList(ignoreList *iL);
 

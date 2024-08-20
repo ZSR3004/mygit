@@ -156,8 +156,6 @@ void index_directory(char *path) {
  * @return 
  */
 void index_file(char *path) {
-
-    add_index_table(path);
     
     FILE *file = open_file(path, "r");
 
