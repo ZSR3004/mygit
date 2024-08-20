@@ -39,6 +39,7 @@ void create_file(char* path, char* mode) {
         printf("Failed to create the file: %s\n", path);
         exit(1);
     }
+    return;
 }
 
 /**

@@ -106,10 +106,10 @@ ignoreList *build_ignoreList() {
  * 
  * @return 
  */
-bool in_ignoreList(ignoreList *iL, char *item) {
+bool in_ignoreList(ignoreList *iL, dirent *item) {
 
     for (int i = 0; i < iL->count; i++) {
-        if (strcmp(iL->arr[i], item) == 0) {
+        if (strcmp(iL->arr[i], item->d_name) == 0) {
             return true;
         }
     }
