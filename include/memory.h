@@ -11,7 +11,7 @@ typedef struct dirent dirent;
 
 void create_directory(char* path);
 
-void create_file(char* path, char* mode);
+FILE *create_file(char* path);
 
 char *get_cwd(void);
 

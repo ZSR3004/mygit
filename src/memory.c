@@ -33,13 +33,13 @@ void create_directory(char* path) {
  * 
  * @return 
  */
-void create_file(char* path, char* mode) {
-    FILE* file = fopen(path, mode);
+FILE *create_file(char* path) {
+    FILE* file = fopen(path, "a");
     if (file == NULL) {
         printf("Failed to create the file: %s\n", path);
         exit(1);
     }
-    return;
+    return file;
 }
 
 /**
