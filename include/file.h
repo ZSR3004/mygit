@@ -1,3 +1,13 @@
+/**
+ * @file file.h
+ * @brief Handles file and directory interactions for the program.6
+ * 
+ * 
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #ifndef MEMORY_H
 #define MEMORY_H
 

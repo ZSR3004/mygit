@@ -1,3 +1,13 @@
+/**
+ * @file help.h
+ * @brief Prints helpful instructions for how to use the program.
+ * 
+ * 
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #ifndef HELP_H
 #define HELP_H
 
