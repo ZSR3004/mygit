@@ -1,3 +1,13 @@
+/**
+ * @file objects.c
+ * @brief Implementation of object creation, building, and destruction.
+ * 
+ * -
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #include "../include/objects.h"
 
 // Blob Object Functions

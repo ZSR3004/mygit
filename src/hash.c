@@ -1,3 +1,14 @@
+/**
+ * @file hash.c
+ * @brief Hash implementation
+ * 
+ * This file holds the hashing functions. I plan to replace this with the SHA-1 hash
+ * used in the git directory.
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #include "../include/hash.h"
 
 /**

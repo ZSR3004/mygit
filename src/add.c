@@ -1,6 +1,32 @@
-#include "../include/add.h"
+/**
+ * @file add.c
+ * @brief Implementation file for the "mygit add" command.
+ * 
+ * This file handles staging for the "mygit add" command. The stage_file function is
+ * the core of this file and the command. All other functions either parse user input,
+ * loop over files, or assist in blob creation.
+ * 
+ * When the "add" command is triggered, the program takes the argument (that is, the 
+ * string right after "add") and enters the add_command_cases function.
+ * 
+ * That function determines if the input was a file or a directory and enters either the
+ * stage_file or stage_directory function respectively. The stage_directory just loops
+ * through the directory and its subdirectory at the provided path until it hits a file
+ * to stage.
+ * 
+ * To be clear, during the staging process, only files are indexed and directories are left
+ * mostly alone. The stage_directory function is just a means to loop through a directory and
+ * refers to the process of automating the staging of the files inside of that directory, not
+ * the directory itself.
+ * 
+ * @related See staging.h and staging.c for more details on the abstraction and implementation
+ *          of staging respectively.
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
 
-// indexTable is in the index file. 
+#include "../include/add.h"
 
 /*
  * Need to move stuff around so object creation, building, and freeing are done in the objects file.
@@ -35,7 +61,7 @@ const int FILE_ENUM = 8;
  *
  * @param path Path to be indexed.
  */
-void index_cases(char *path) {
+void add_command_cases(char *path) {
 
     if (strcmp(path, ".") == 0) {
         char *cwd = get_cwd();
@@ -142,7 +168,7 @@ void index_directory(char *path) {
 
     }
 
-    free_strArr(sa);
+    // free_strArr(sA);
     close_directory(dir);
     return;
 

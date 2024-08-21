@@ -1,3 +1,11 @@
+/**
+ * @file staging.c
+ * @brief Implementation file for staging processes.
+ * 
+ * 
+ * 
+ */
+
 #include "../include/staging.h"
 
 /**

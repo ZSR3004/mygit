@@ -1,3 +1,14 @@
+/**
+ * @file file.c
+ * @brief Implementation for file and directory handling.
+ * 
+ * This file takes basic functions like fopen and fclose from <stdlib.h> and executes them
+ * while handling potential errors by exiting the program if they occur.
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #include "../include/file.h"
 #include <unistd.h>
 

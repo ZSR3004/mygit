@@ -43,7 +43,7 @@
  * or as a directory.
  * 
 */
-void index_cases(char *path);
+void add_command_cases(char *path);
 
 /*
  * Functions to handle creating the directory that blob objects 
@@ -56,7 +56,7 @@ char *create_index_location(char *blob_hash);
 /*
  * Functions that do the actual staging work.
 */
-void index_directory(char *path);
-void index_file(char *path);
+void stage_directory(char *path);
+void stage_file(char *path);
 
 #endif // ADD_H
