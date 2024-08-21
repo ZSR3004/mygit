@@ -1,13 +1,3 @@
-/**
- * @file hash.h
- * @brief Handles hashing and hash look-up.
- * 
- * 
- * 
- * @author Ziyad Rahman
- * 
- */
-
 #ifndef HASH_H
 #define HASH_H
 

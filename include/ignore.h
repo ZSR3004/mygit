@@ -1,5 +1,3 @@
-
-
 #ifndef IGNORE_H
 #define IGNORE_H
 

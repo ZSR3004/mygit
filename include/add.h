@@ -1,13 +1,3 @@
-/**
- * @file add.h
- * @brief Handles processes for the "mygit add" command.
- * 
- * 
- * 
- * @author Ziyad Rahman
- * 
- */
-
 #ifndef ADD_H
 #define ADD_H
 
@@ -37,7 +27,7 @@ char *create_index_location(char *blob_hash);
 /*
  * Functions that do the actual staging work.
 */
-void stage_directory(char *path);
-void stage_file(char *path);
+void index_directory(char *path);
+void index_file(char *path);
 
 #endif // ADD_H
