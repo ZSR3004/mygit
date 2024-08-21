@@ -8,7 +8,7 @@
 #include "../include/init.h"
 #include "../include/hash.h"
 #include "../include/add.h"
-#include "../include/ignore.h"
+#include "../include/strarr.h"
 
 int main(int argc, char *argv[]) {
 

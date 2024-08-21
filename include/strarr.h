@@ -50,7 +50,7 @@ strArr *grow_strArr(strArr *sa);
 
 void insert_strArr(strArr *sa, char *item);
 
-strArr *build_strArr(void);
+strArr *build_strArr(char *file_path); // This changes to building a dyanmic array with each line as an element.
 
 bool in_strArr(strArr *sa, dirent *item);
 
