@@ -7,7 +7,7 @@
 
 #include "file.h"
 #include "hash.h"
-#include "ignore.h"
+#include "strarr.h"
 
 /*
  * Function that handles if mygit treats the source as a file
