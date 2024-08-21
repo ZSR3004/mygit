@@ -1,3 +1,15 @@
+/**
+ * @file.h
+ * @brief Handles file input/output
+ * 
+ * file.h handles file input, output, and creation. It's primary purpose is to error handle
+ * for possibly finicky file functions like fopen and fwrite. It also handles writing to files
+ * and extracting what are in files and placing that text into strings.
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #ifndef MEMORY_H
 #define MEMORY_H
 

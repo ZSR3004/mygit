@@ -1,3 +1,11 @@
+/**
+ * @file help.h
+ * @brief Prints guidance for how to use MyGit.
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #ifndef HELP_H
 #define HELP_H
 
