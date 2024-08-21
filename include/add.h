@@ -1,3 +1,9 @@
+/**
+ * @file add.h
+ * @brief Handles indexing done by the "mygit add" command.
+ * 
+ */
+
 #ifndef ADD_H
 #define ADD_H
 
