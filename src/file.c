@@ -174,6 +174,23 @@ char *get_file_text(FILE *file) {
 }
 
 /**
+ * @brief Checks if a file is in a directory based on its name.
+ * 
+ * Iterates through a directory to determine if a file name is present
+ * in it. Handles directory opening and closing based on path.
+ * 
+ * @param directory_path The path to the directory to be checked.
+ * @param entry_name The name of the file in question.
+ * 
+ * @return  true if the file name is in the directory;
+ *          false if the file name is not in the directory.
+ * 
+ */
+bool in_directory(char* directory_path, char *entry_name) {
+
+}
+
+/**
  * @brief Closes directory.
  * 
  * @param directory The directory to be closed.

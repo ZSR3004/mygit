@@ -28,3 +28,18 @@ char *hash_function(const char *str) {
     
     return hash;
 }
+
+/**
+ * @brief Checks the ".mygit/objects/" directory for the object_hash.
+ * 
+ * @param object_hash The hash to search for.
+ * 
+ * @return  The string contents of the file if it is found;
+ *          else, returns NULL if the hash is not present.
+ * 
+ */
+char *hash_lookup(char *object_hash) {
+
+
+
+}

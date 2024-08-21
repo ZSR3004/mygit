@@ -70,21 +70,25 @@ void insert_strArr(strArr *sa, char *item) {
 }
 
 /**
- * @brief Creates an strArr based on .mygitignore.
+ * @brief Creates an strArr based on a file.
  * 
- * Inits an strArr containing the files and directories detailed in
- * the local .mygitignore file. 
+ * Inits a strArr based on a file path, where each line in the file
+ * becomes an item in the strArr.
+ * 
+ * @param file_path A valid path to a file.
+ *      @pre    file_path must point to a plain-text file or another file
+ *              type that can be iterated through line by line.
  * 
  * @return A valid representation of an strArr.
  *  
  */
-strArr *build_strArr() {
+strArr *build_strArr(char *file_path) {
 
     strArr *sa = init_strArr();
 
 
     char *path = get_cwd();
-    strcat(path, "/.mygitignore");
+    strcat(path, file_path);
     FILE *file = open_file(path, "r");
 
     char line[256];

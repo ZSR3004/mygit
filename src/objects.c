@@ -40,7 +40,7 @@ char *init_blob(unsigned long file_size, char *file_text) {
  * 
  * @return A string representation of the blob object.
  */
-char *create_blob(FILE *file) {
+char *build_blob(FILE *file) {
 
     char *file_text = get_file_text(file);
     unsigned long int_file_size = get_file_size(file);
