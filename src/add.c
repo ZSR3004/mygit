@@ -111,7 +111,7 @@ char *create_index_location(char *blob_hash) {
 void index_directory(char *path) {
 
     DIR *dir = open_directory(path);
-    ignoreList *iL = build_ignoreList();
+    strArr *sa = build_strArr();
     char* subdir_path;
     dirent *entry;
 
@@ -139,7 +139,7 @@ void index_directory(char *path) {
 
     }
 
-    free_ignoreList(iL);
+    free_strArr(sa);
     close_directory(dir);
     return;
 
