@@ -27,6 +27,7 @@
 #define INIT_H
 
 #include "file.h"
+#include "staging.h"
 
 void init_mygit_directory(void);
 

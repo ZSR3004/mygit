@@ -32,7 +32,8 @@
  */
 void create_blank_index(void) {
 
-
+    FILE *index = create_file(".mygit/index/index.txt");
+    close_file(index);
 
 }
 

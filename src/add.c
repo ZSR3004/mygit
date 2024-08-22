@@ -65,12 +65,12 @@ void add_command_cases(char *path) {
 
     if (strcmp(path, ".") == 0) {
         char *cwd = get_cwd();
-        index_directory(cwd);
+        stage_directory(cwd);
         free(cwd);
     } else if (strcmp(path, "/") == 0) {
-        index_directory(path);
+        stage_directory(path);
     } else {
-        index_file(path);
+        stage_file(path);
     }
 
 }
@@ -137,7 +137,7 @@ char *create_index_location(char *blob_hash) {
  * @TODO: Update function to accomodate for new strArr functions.
  * 
  */
-void index_directory(char *path) {
+void stage_directory(char *path) {
 
     DIR *dir = open_directory(path);
     // strArr *sa = build_strArr();
@@ -154,13 +154,13 @@ void index_directory(char *path) {
         strcat(curr_path, entry->d_name);
 
         if (entry->d_type == FILE_ENUM) {
-            index_file(curr_path);
+            stage_file(curr_path);
         } else if (entry->d_type == DIR_ENUM) {
             subdir_path = malloc(strlen(path) + strlen(entry->d_name) + SIZE_BUFFER);
             strcpy(subdir_path, path);
             strcat(subdir_path, "/");
             strcat(subdir_path, entry->d_name);
-            index_directory(subdir_path);
+            stage_directory(subdir_path);
             free(subdir_path);
         }
 
@@ -183,11 +183,11 @@ void index_directory(char *path) {
  * @param path The path for the file to be indexed.
  * 
  */
-void index_file(char *path) {
+void stage_file(char *path) {
     
     FILE *file = open_file(path, "r");
 
-    char *blob = create_blob(file);
+    char *blob = build_blob(file);
     close_file(file);
 
 

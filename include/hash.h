@@ -18,7 +18,7 @@
 
 #include "file.h"
 
-char *hash_function(char* str);
+char *hash_function(const char* str);
 
 char *hash_lookup(char *object_hash);
 

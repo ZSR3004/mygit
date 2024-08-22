@@ -37,6 +37,7 @@
 #include "file.h"
 #include "hash.h"
 #include "strarr.h"
+#include "objects.h"
 
 /*
  * Function that handles if mygit treats the source as a file
