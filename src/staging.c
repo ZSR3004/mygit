@@ -21,7 +21,10 @@
  * 
  */
 
+
 #include "../include/staging.h"
+
+const char *index_path = ".mygit/index/index.txt";
 
 /**
  * @brief Creates a blank index file.
@@ -32,7 +35,7 @@
  */
 void create_blank_index(void) {
 
-    FILE *index = create_file(".mygit/index/index.txt");
+    FILE *index = create_file(index_path);
     close_file(index);
 
 }
@@ -54,6 +57,18 @@ void create_blank_index(void) {
  */
 void add_to_index(char *file_path, char *blob_hash, char *blob_size) {
 
+    FILE *index = open_file(index_path, "w");
 
+    fprintf(index, file_path);
+    fprintf(index, ",");
+
+    fprintf(index, blob_hash);
+    fprintf(index, ",");
+
+    fprintf(index, blob_size);
+    fprintf(index, ",");
+
+    close_file(index);
+    return;
 
 }
