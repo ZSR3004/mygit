@@ -201,7 +201,9 @@ void stage_file(char *path) {
     strcat(final_path, ".txt");
 
     FILE *final_file = open_file(final_path, "w");
-    fwrite(blob, sizeof(char), strlen(blob), final_file);
+    fwrite(blob, sizeof(char), strlen(blob) * sizeof(char), final_file);
+
+    add_to_index(path, blob_hash, strlen(blob) * sizeof(char));
 
     free(final_path);
     free(index_path);

@@ -55,9 +55,9 @@ void create_blank_index(void) {
  *                  listed in the actual blob object file.
  * 
  */
-void add_to_index(char *file_path, char *blob_hash, char *blob_size) {
+void add_to_index(char *file_path, char *blob_hash, long unsigned int blob_size) {
 
-    FILE *index = open_file(index_path, "w");
+    FILE *index = open_file(index_path, "a");
 
     fprintf(index, file_path);
     fprintf(index, ",");
@@ -65,8 +65,13 @@ void add_to_index(char *file_path, char *blob_hash, char *blob_size) {
     fprintf(index, blob_hash);
     fprintf(index, ",");
 
-    fprintf(index, blob_size);
+    char *char_blob_size = malloc(225);
+    printf("blob size; %lu", blob_size);
+    sprintf(char_blob_size, "%lu", blob_size);
+    fprintf(index, char_blob_size);
     fprintf(index, ",");
+    free(char_blob_size);
+    fprintf(index, "\n");
 
     close_file(index);
     return;
