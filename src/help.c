@@ -1,3 +1,16 @@
+/**
+ * @file help.c
+ * @brief Prints instructions for use.
+ * 
+ * This file is split based on the various commands of mygit. They can be triggered
+ * via "mygit help <command name>". The functions are titled accordingly, as
+ * "<command name>_help". For example, "mygit help add" triggers the "add_help" function
+ * which displays information about the "add" command.
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #include "../include/help.h"
 
 /**
