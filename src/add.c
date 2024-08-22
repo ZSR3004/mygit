@@ -140,7 +140,6 @@ char *create_index_location(char *blob_hash) {
 void stage_directory(char *path) {
 
     DIR *dir = open_directory(path);
-    // strArr *sa = build_strArr();
     char* subdir_path;
     dirent *entry;
 
@@ -168,7 +167,6 @@ void stage_directory(char *path) {
 
     }
 
-    // free_strArr(sA);
     close_directory(dir);
     return;
 

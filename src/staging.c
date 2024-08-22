@@ -24,7 +24,7 @@
 
 #include "../include/staging.h"
 
-const char *index_path = ".mygit/index/index.txt";
+char *index_path = ".mygit/index/index.txt";
 
 /**
  * @brief Creates a blank index file.
