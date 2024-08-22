@@ -1,3 +1,14 @@
+/**
+ * @file starrr.c
+ * @brief Implementation for the dynamic string array.
+ * 
+ * strArr is a dyanmic array of strings. This file handles the various functions needed
+ * to create, access, and free the dyanmic array struct.
+ * 
+ * @author Ziyad Rahman
+ * 
+ */
+
 #include "../include/strarr.h"
 
 /**

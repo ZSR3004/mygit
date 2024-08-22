@@ -16,19 +16,14 @@
  * recorded only once the "mygit commit" command is ran. So, the staging process only handles files,
  * not directories.
  * 
- * The index file is a single plain-text file that holds a few pieces of information before changes
- * are commited via the "mygit commit" command. The general format is as follows:
- * 
- * <file name>, <the file's blob hash>, <file size>
- * <second file name>, <the second file's blob hash>, <second file size>
- * 
- * This is basically just a CSV file, but beacuse Git uses binary files, and I am already using plain-
- * text files as a stand-in for binary files in this project, I made the index file a plain-text for
- * consistency's sake.
+ * The index file is never cleared (while on the same branch). It is a running record of all files that
+ * have been added. This is to prevent MyGit from adding the same file twice (ie, making a duplicate of
+ * a file in the directory).
  * 
  * @author Ziyad Rahman
  * 
  */
+
 #ifndef STAGING_H
 #define STAGING_H
 
