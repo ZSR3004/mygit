@@ -10,7 +10,7 @@
  * <file path>, <the file's blob hash>, <file size>
  * <second file path>, <the second file's blob hash>, <second file size>
  * 
- * This is basically just a CSV file, but beacuse Git uses binary files, and I am already using plain-
+ * This is basically just a CSV file, but because Git uses binary files, and I am already using plain-
  * text files as a stand-in for binary files in this project, I made the index file a plain-text for
  * consistency's sake.
  * 
@@ -46,7 +46,7 @@ void create_blank_index(void) {
  * Takes a blob's information and adds it to the index. This function
  * handles the opening and closing of the index file and possible
  * duplicate adds (where the "add" command is used on the same file
- * multiple times during the same comit).
+ * multiple times during the same commit).
  * 
  * @param file_path The path to the file which is being represented by 
  *                  a blob.

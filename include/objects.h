@@ -14,7 +14,7 @@
  * Objects are used in practically all commands.
  * 
  * The function headers in this file are grouped by objects (rather than what they do), and
- * you can find detailed explainations of each object directly above its section.
+ * you can find detailed explanations of each object directly above its section.
  * 
  * To learn about how these objects are used by each command is used you can refer to the
  * header and source files of the same name as the command.

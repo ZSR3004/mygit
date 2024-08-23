@@ -134,7 +134,7 @@ char *create_index_location(char *blob_hash) {
  * @bug May add a file twice if its name is similar to another file's.
  * 
  * @TODO: Implement ignore feature.
- * @TODO: Update function to accomodate for new strArr functions.
+ * @TODO: Update function to accommodate for new strArr functions.
  * @TODO: Change all these strcat statements to use sprintf.
  * 
  */
