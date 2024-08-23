@@ -135,6 +135,7 @@ char *create_index_location(char *blob_hash) {
  * 
  * @TODO: Implement ignore feature.
  * @TODO: Update function to accomodate for new strArr functions.
+ * @TODO: Change all these strcat statements to use sprintf.
  * 
  */
 void stage_directory(char *path) {
@@ -179,6 +180,9 @@ void stage_directory(char *path) {
  * to the index table.
  * 
  * @param path The path for the file to be indexed.
+ * 
+ * @TODO: Change strcat statements to sprintf.
+ * @TODO: Change the indexing so its relative paths to the cwd. 
  * 
  */
 void stage_file(char *path) {
