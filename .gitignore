@@ -1,7 +1,14 @@
 .vscode
 
+# This is where the compiled code goes.
 /bin
 
+# The .mygit folder that is created when running the test. 
 /tests/test_repo_one/.mygit
 
+# A running list of ideas for improvement
 notes.txt
+
+# I created a commit header file before realizing that I wanted to make this project public. I am
+# removing it since the feature is incomplete.
+commit.h
