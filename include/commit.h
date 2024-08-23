@@ -20,4 +20,7 @@
  * 
  */
 
+#include "file.h"
+#include "staging.h"
+
 void commit_changes(char *commit_message);
