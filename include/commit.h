@@ -21,5 +21,3 @@
  */
 
 void commit_changes(char *commit_message);
-
-char *extract_message(char *argv[]);
