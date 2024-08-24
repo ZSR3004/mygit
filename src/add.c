@@ -28,12 +28,6 @@
 
 #include "../include/add.h"
 
-/*
- * Need to move stuff around so object creation, building, and freeing are done in the objects file.
- * 
- * This file does one thing: stage objects. Clean up how the strings are made.
-*/
-
 /**
  * @brief Extra space for when creating a string.
  * 
@@ -191,7 +185,6 @@ void stage_file(char *path) {
 
     char *blob = build_blob(file);
     close_file(file);
-
 
     char *blob_hash = hash_function(blob);
     char *index_path = create_index_location(blob_hash);

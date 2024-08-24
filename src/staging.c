@@ -36,6 +36,10 @@ char *index_path = ".mygit/index/index.txt";
 void create_blank_index(void) {
 
     FILE *index = create_file(index_path);
+
+    unsigned long size = sizeof(unsigned long);
+    fprintf(index, "%lu\n", size);
+    
     close_file(index);
 
 }
@@ -57,21 +61,21 @@ void create_blank_index(void) {
  */
 void add_to_index(char *file_path, char *blob_hash, long unsigned int blob_size) {
 
-    FILE *index = open_file(index_path, "a");
+    FILE *index = open_file(index_path, "r+");
 
-    fprintf(index, file_path);
-    fprintf(index, ",");
+    unsigned long size;
+    fscanf(index, "%lu\n", &size);
+    printf("Index size: %lu\n", size);
 
-    fprintf(index, blob_hash);
-    fprintf(index, ",");
+    fseek(index, 0, SEEK_END);
 
-    char *char_blob_size = malloc(225);
-    printf("blob size; %lu", blob_size);
-    sprintf(char_blob_size, "%lu", blob_size);
-    fprintf(index, char_blob_size);
-    fprintf(index, ",");
-    free(char_blob_size);
-    fprintf(index, "\n");
+    fprintf(index,
+            "%s, %s, %lu\n",
+            file_path, blob_hash, blob_size);
+
+    size += sizeof(file_path) + sizeof(blob_hash) + sizeof(blob_size);
+    fseek(index, 0, SEEK_SET);
+    fprintf(index, "%lu\n", size);  
 
     close_file(index);
     return;

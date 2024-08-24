@@ -12,7 +12,9 @@
 
 int main(int argc, char *argv[]) {
 
-    if (argc == 1) gen_help();
+    if (argc == 1) {
+        // init_tree("/home/zsr/curr_proj/mygit/tests/test_repo_one/.mygit/index/index.txt");
+    }
     else if (argc > 1) {
 
         char command[100];

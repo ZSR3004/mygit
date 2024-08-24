@@ -31,6 +31,7 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "strarr.h"
 #include "file.h"
 
 /**

@@ -112,18 +112,20 @@ FILE *open_file(char *path, char *state) {
 }
 
 /**
- * @brief Gets file size in bytes.
+ * @brief Gets file size in bits.
  * 
  * @param file  The file of which you're trying to find the size of.
  * 
- * @return The file's size in bytes.
+ * @return The file's size in bits.
  * 
  */
 unsigned long get_file_size(FILE *file) {
+
     fseek(file, 0, SEEK_END);
     long file_size = ftell(file);
     fseek(file, 0, SEEK_SET);
     return file_size;
+    
 }
 
 /**

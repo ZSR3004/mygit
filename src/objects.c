@@ -44,14 +44,18 @@
  */
 char *init_blob(unsigned long file_size, char *file_text) {
 
-    char *char_file_size = malloc((file_size * 4 + 100) * sizeof(char)); // Size Buffer
-    sprintf(char_file_size, "%lu", file_size);
+    // char *char_file_size = malloc((file_size * 4 + 100) * sizeof(char)); // Size Buffer
+    // sprintf(char_file_size, "%lu", file_size);
     size_t blob_size = strlen(file_text) + sizeof("blob") + 100; // Size Buffer
 
     char *blob = malloc((blob_size + 1) * sizeof(char));
-    snprintf(blob, blob_size + 1, "blob\t%s bytes \n%s", char_file_size, file_text);
+    // snprintf(blob, blob_size + 1, "blob\t%s bytes \n%s", char_file_size, file_text);
 
-    free(char_file_size);
+    snprintf(blob, blob_size + 1,
+            "%lu bits\n%s",
+            file_size, file_text);
+
+    // free(char_file_size);
 
     return blob;
 
@@ -101,11 +105,7 @@ void free_blob(char *blob) {
  */
 char *init_tree(char *index_path) {
 
-    FILE *index = open_file(index_path, "r");
 
-    
-
-    close_file(index);
 
 }
 
