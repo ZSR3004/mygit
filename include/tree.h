@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "strarr.h"
+
 typedef enum {
     FILE_SUBTREE,
     DIR_SUBTREE
@@ -37,6 +39,18 @@ int dir_in_tree(char*, tree_cache*);
 
 void recursive_tree_insert(FILE *index, tree_cache*, char*);
 void build_trees(FILE *index, tree_cache *tc, char *cwd);
+
+/**
+ * Algo Outline:
+ * 
+ * Iterate through working_tree->down.
+ * 
+ * While moving through it write all contents to file.
+ *      If content == directory/tree, then add to stack.
+ *      When done, pop the first thing off the stack and recurse.
+ * 
+ */
+char *tree_write(tree_cache *tc);
 
 void print_tc(tree_cache *tc, int depth);
 

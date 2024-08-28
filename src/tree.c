@@ -9,7 +9,7 @@ subtree_cache *init_subtree_cache(SUBTREE_TYPE type, char *name, char *hash) {
     stc->name = name;
     stc->namelen = strlen(name);
     stc->hash = hash;
-    stc->hashlen = strlen(hash);
+    if (hash != NULL) stc->hashlen = strlen(hash);
     stc->type = type;
     stc->used = false; 
     return stc;
@@ -119,8 +119,9 @@ void recursive_tree_insert(FILE *index, tree_cache *tc, char *line) {
 
         char *token = strtok(second_line_copy, ", ");
         token = strtok(NULL, ", ");
-        char *hash = malloc((strlen(token) + 1) * sizeof(char));
-        strcpy(hash, token);
+        char *hash = NULL;
+        // malloc((strlen(token) + 1) * sizeof(char));
+        // strcpy(hash, token);
 
         subtree_cache *stc = init_subtree_cache(DIR_SUBTREE, get_name(first_line_copy, DIR_SUBTREE), hash);
         stc->tree_cache = init_tree_cache();
@@ -153,6 +154,12 @@ void build_trees(FILE *index, tree_cache *tc, char *cwd) {
     }
 }
 
+char *tree_write(tree_cache *tc) {
+
+
+
+}
+
 void print_tc(tree_cache *tc, int depth) {
     for (int i = 0; i < tc->entry_count; i++) {
         if (tc->down[i] == NULL) continue;
@@ -171,6 +178,8 @@ void print_tc(tree_cache *tc, int depth) {
 }
 
 void free_subtree_cache(subtree_cache *stc) {
+    free(stc->name);
+    free(stc->hash);
     free(stc);
     return;
 }
