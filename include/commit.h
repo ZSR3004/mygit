@@ -22,5 +22,6 @@
 
 #include "file.h"
 #include "staging.h"
+#include "tree.h"
 
 void commit_changes(char *commit_message);

@@ -44,6 +44,10 @@ char *get_name(char line[], int type) {
                     strncpy(name + 1, token, length - 1);
                     name[length] = '\0';
                     return name;
+                } else {
+                    char *name = malloc(strlen(token) + 1);
+                    strcpy(name, token);
+                    return name;
                 }
 
             default:
@@ -60,7 +64,7 @@ char *get_name(char line[], int type) {
     return NULL;
 }
 
-bool is_index_file(char line[], tree_cache *tc) {
+bool is_index_file(char line[]) {
     if (strstr(line, "/") != NULL) {
         return false;
     } else {
@@ -85,7 +89,7 @@ void recursive_tree_insert(tree_cache *tc, char *line) {
     char *line_copy = malloc(strlen(line) *sizeof(char));
     strcpy(line_copy, line);
 
-    if (is_index_file(line_copy, tc) == true) {
+    if (is_index_file(line_copy) == true) {
 
         subtree_cache *stc = init_subtree_cache();
         stc->name = get_name(line_copy, FILE_SUBTREE);

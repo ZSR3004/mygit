@@ -10,25 +10,13 @@
 #include "../include/add.h"
 #include "../include/strarr.h"
 #include "../include/tree.h"
+#include "../include/commit.h"
 
 int main(int argc, char *argv[]) {
 
     if (argc == 1) {
 
-        FILE *index = fopen("/home/zsr/curr_proj/mygit/tests/test_repo_one/.mygit/index/index.txt", "r");
-
-        tree_cache *working_tree = init_tree_cache();
-        working_tree->down = malloc(sizeof(subtree_cache) * 25);
-        
-        build_trees(index, working_tree, "/home/zsr/curr_proj/mygit/tests/test_repo_one/");
-
-        printf("Printing Tree...\n");
-        print_tc(working_tree, 0);
-
-
-        recursive_free_tree_cache(working_tree);
-        fclose(index);
-        return 0;
+        commit_changes("This is my message");
         
     } else if (argc > 1) {
 

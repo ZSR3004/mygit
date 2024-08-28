@@ -32,7 +32,7 @@ tree_cache *init_tree_cache(void);
 
 char *get_name(char[], int);
 
-bool is_index_file(char[], tree_cache*);
+bool is_index_file(char[]);
 
 int dir_in_tree(char*, tree_cache*);
 
