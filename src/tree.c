@@ -1,10 +1,11 @@
 #include "../include/tree.h"
 
-subtree_cache *init_subtree_cache(void) {
+subtree_cache *init_subtree_cache(SUBTREE_TYPE type, char *name) {
     subtree_cache *stc = malloc(sizeof(subtree_cache));
     stc->tree_cache = NULL;
-    stc->name = NULL;
-    stc->namelen = -1;
+    stc->name = name;
+    stc->namelen = strlen(name);
+    stc->type = type;
     stc->used = false; 
     return stc;
 }
@@ -88,11 +89,7 @@ void recursive_tree_insert(tree_cache *tc, char *line) {
 
     if (is_index_file(line_copy) == true) {
 
-        subtree_cache *stc = init_subtree_cache();
-        stc->name = get_name(line_copy, FILE_SUBTREE);
-        stc->namelen = strlen(stc->name);
-        stc->type = FILE_SUBTREE;
-        stc->tree_cache = NULL;
+        subtree_cache *stc = init_subtree_cache(FILE_SUBTREE, get_name(line_copy, FILE_SUBTREE));
 
         tc->down[tc->entry_count] = stc;
         tc->entry_count++;
@@ -101,7 +98,6 @@ void recursive_tree_insert(tree_cache *tc, char *line) {
     }
     
     int det_pos = dir_in_tree(line_copy, tc);
-
     if (det_pos > -1) {
 
         char *new_line = strchr(line, '/') + 1;
@@ -109,10 +105,7 @@ void recursive_tree_insert(tree_cache *tc, char *line) {
 
     } else if (det_pos == -1) {
 
-        subtree_cache *stc = init_subtree_cache();
-        stc->name = get_name(line_copy, DIR_SUBTREE); // of subdir
-        stc->namelen = strlen(stc->name);
-        stc->type = DIR_SUBTREE;
+        subtree_cache *stc = init_subtree_cache(DIR_SUBTREE, get_name(line_copy, DIR_SUBTREE));
         stc->tree_cache = init_tree_cache();
         stc->tree_cache->down = malloc(sizeof(subtree_cache) * 25);
 

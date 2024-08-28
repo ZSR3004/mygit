@@ -26,7 +26,7 @@ struct tree_cache{
     subtree_cache **down;
 };
 
-subtree_cache *init_subtree_cache(void);
+subtree_cache *init_subtree_cache(SUBTREE_TYPE type, char *name);
 tree_cache *init_tree_cache(void);
 
 char *get_name(char[], int);
