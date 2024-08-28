@@ -55,11 +55,7 @@ char *get_name(char line[], int type) {
                 exit(1);
         }
 
-    } else {
-            printf("Failed to tokenize %s\n", line);
-        }
-
-        
+    } else printf("Failed to tokenize %s\n", line);
 
     return NULL;
 }
@@ -73,11 +69,12 @@ bool is_index_file(char line[]) {
 }
 
 int dir_in_tree(char *line, tree_cache *tc) {
+    
     char *name = get_name(line, DIR_SUBTREE);
     for (int i = 0; i < tc->entry_count; i++) {
-        if (!strcmp(tc->down[i]->name, name)) {
-            return i;
-        }
+
+        if (!strcmp(tc->down[i]->name, name)) return i;
+
     }
 
     return -1;
@@ -128,6 +125,39 @@ void recursive_tree_insert(tree_cache *tc, char *line) {
     }
 }
 
+
+void build_trees(FILE *index, tree_cache *tc, char *cwd) {
+    fseek(index, 0, SEEK_SET);
+    char line[BUFSIZ];
+    int offset = strlen(cwd);
+
+    fgets(line, BUFSIZ, index); // Skip first line of size.
+    fgets(line, BUFSIZ, index); // Skip second line of index.
+    
+    fseek(index, offset, SEEK_CUR);
+    while (fgets(line, BUFSIZ, index)) {
+        fseek(index, offset, SEEK_CUR);
+        recursive_tree_insert(tc, line);
+    }
+}
+
+void print_tc(tree_cache *tc, int depth) {
+    for (int i = 0; i < tc->entry_count; i++) {
+        if (tc->down[i] == NULL) continue;
+
+        for (int j = 0; j < depth; j++) printf("\t");
+
+        if (tc->down[i]->type == FILE_SUBTREE) printf("%s\n", tc->down[i]->name);
+        else if (tc->down[i]->type == DIR_SUBTREE) {
+
+            printf("%s\n", tc->down[i]->name);
+            print_tc(tc->down[i]->tree_cache, depth + 1);
+
+        }
+    }
+
+}
+
 void free_subtree_cache(subtree_cache *stc) {
     free(stc);
     return;
@@ -150,36 +180,4 @@ void recursive_free_tree_cache(tree_cache *tc) {
     free(tc->down);
     free(tc);
 
-}
-
-void print_tc(tree_cache *tc, int depth) {
-    for (int i = 0; i < tc->entry_count; i++) {
-        if (tc->down[i] == NULL) continue;
-
-        for (int j = 0; j < depth; j++) printf("\t");
-
-        if (tc->down[i]->type == FILE_SUBTREE) printf("%s\n", tc->down[i]->name);
-        else if (tc->down[i]->type == DIR_SUBTREE) {
-
-            printf("%s\n", tc->down[i]->name);
-            print_tc(tc->down[i]->tree_cache, depth + 1);
-
-        }
-    }
-
-}
-
-void build_trees(FILE *index, tree_cache *tc, char *cwd) {
-    fseek(index, 0, SEEK_SET);
-    char line[BUFSIZ];
-    int offset = strlen(cwd);
-
-    fgets(line, BUFSIZ, index); // Skip first line of size.
-    fgets(line, BUFSIZ, index); // Skip second line of index.
-    
-    fseek(index, offset, SEEK_CUR);
-    while (fgets(line, BUFSIZ, index)) {
-        fseek(index, offset, SEEK_CUR);
-        recursive_tree_insert(tc, line);
-    }
 }

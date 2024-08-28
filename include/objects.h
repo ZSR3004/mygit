@@ -98,16 +98,23 @@ void free_tree(char *tree);
  * find these files in the following format:
  * 
  * tree <hash for the tree object of the current working directory>
- * parent <hash for the parent commit or "null" if it's the first one>
+ * parent <hash for the parent commit or "NULL" if it's the first one>
  * author <the person making the commit>
  * <the commit message>
  * 
- * For example, if John Doe makes a commit with the message "second commit", then it would appear as the following:
+ * For example, if John Doe makes a commit with the message "this is my commit", then it would appear as the following:
  * 
  * tree abcd1234
  * parent efgh5678
  * author 'John Doe'
- * second commit
+ * this is my commit
+ * 
+ * Alternatively, if that was the first commit it would look like this:
+ * 
+ * tree abcd1234
+ * parent NULL
+ * author 'John Doe'
+ * this is my commit
  * 
  */
 char *init_commitObj(char *tree_hash, char *parent_commitObj_hash, char *author_name);
