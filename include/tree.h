@@ -17,6 +17,8 @@ struct subtree_cache{
     SUBTREE_TYPE type;
     char *name;
     int namelen;
+    char *hash;
+    int hashlen;
     bool used;
 };
 
@@ -26,14 +28,14 @@ struct tree_cache{
     subtree_cache **down;
 };
 
-subtree_cache *init_subtree_cache(SUBTREE_TYPE type, char *name);
+subtree_cache *init_subtree_cache(SUBTREE_TYPE type, char *name, char *hash);
 tree_cache *init_tree_cache(void);
 
 char *get_name(char[], int);
 bool is_index_file(char[]);
 int dir_in_tree(char*, tree_cache*);
 
-void recursive_tree_insert(tree_cache*, char*);
+void recursive_tree_insert(FILE *index, tree_cache*, char*);
 void build_trees(FILE *index, tree_cache *tc, char *cwd);
 
 void print_tc(tree_cache *tc, int depth);
