@@ -9,6 +9,7 @@
 #include "../include/hash.h"
 #include "../include/add.h"
 #include "../include/strarr.h"
+#include "../include/tree_cache.h"
 #include "../include/tree.h"
 #include "../include/commit.h"
 
@@ -16,7 +17,11 @@ int main(int argc, char *argv[]) {
 
     if (argc == 1) {
 
-        commit_changes("This is my message");
+        tree *t = init_tree(0, "some path", "some hash");
+        write_tree_to_file(t);
+        free_tree(t);
+
+        // commit_changes("This is my message");
         
     } else if (argc > 1) {
 

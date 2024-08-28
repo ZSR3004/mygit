@@ -18,6 +18,7 @@ elif [ "$1" = "3" ]; then
     cd test_repo_one
     $mygit init
     $mygit add .
+    $mygit
 else
     echo "Invalid argument"
 fi

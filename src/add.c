@@ -99,6 +99,8 @@ char *get_file_name(char *path) {
  * all blobs are placed in a directory titled with the first two values of the hash in the 
  * .mygit/objects directory.
  * 
+ * @TODO: Move this to the file.h/file.c.
+ * 
  * @param blob_hash A valid representation of a blob's hash function.
  * 
  * @return The path in which the blob will be placed.
