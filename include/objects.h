@@ -83,6 +83,7 @@ void free_blob(char *blob);
  * 
  * 
  */
+
 char *init_tree(char *index_path);
 char *add_to_tree(char *mode, char *object_type, char* object_hash, char *object_name);
 char *build_tree(char *index_path);

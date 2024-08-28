@@ -65,7 +65,6 @@ void add_to_index(char *file_path, char *blob_hash, long unsigned int blob_size)
 
     unsigned long size;
     fscanf(index, "%lu\n", &size);
-    printf("Index size: %lu\n", size);
 
     fseek(index, 0, SEEK_END);
 

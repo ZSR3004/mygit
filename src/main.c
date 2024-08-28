@@ -9,13 +9,28 @@
 #include "../include/hash.h"
 #include "../include/add.h"
 #include "../include/strarr.h"
+#include "../include/tree.h"
 
 int main(int argc, char *argv[]) {
 
     if (argc == 1) {
-        // init_tree("/home/zsr/curr_proj/mygit/tests/test_repo_one/.mygit/index/index.txt");
-    }
-    else if (argc > 1) {
+
+        FILE *index = fopen("/home/zsr/curr_proj/mygit/tests/test_repo_one/.mygit/index/index.txt", "r");
+
+        tree_cache *working_tree = init_tree_cache();
+        working_tree->down = malloc(sizeof(subtree_cache) * 25);
+        
+        build_trees(index, working_tree, "/home/zsr/curr_proj/mygit/tests/test_repo_one/");
+
+        printf("Printing Tree...\n");
+        print_tc(working_tree, 0);
+
+
+        recursive_free_tree_cache(working_tree);
+        fclose(index);
+        return 0;
+        
+    } else if (argc > 1) {
 
         char command[100];
         strcpy(command, argv[1]);
