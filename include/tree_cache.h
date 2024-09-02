@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "strarr.h"
+#include "tree.h"
 
 typedef enum {
     FILE_SUBTREE,
@@ -43,7 +44,7 @@ void build_trees(FILE *index, tree_cache *tc, char *cwd);
 /**
  * 
  */
-char *tree_write(tree_cache *tc);
+char *tree_write(tree_cache *tc, strArr *tree_arr);
 
 void print_tc(tree_cache *tc, int depth);
 

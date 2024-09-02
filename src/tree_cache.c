@@ -154,9 +154,25 @@ void build_trees(FILE *index, tree_cache *tc, char *cwd) {
     }
 }
 
-char *tree_write(tree_cache *tc) {
+char *tree_write(tree_cache *tc, strArr *tree_arr) {
+    
+    char *tree_str = malloc(BUFSIZ);
 
+    for (int i = 0; i < tc->entry_count; i++) {
+        if (tc->down[i]->type == FILE_SUBTREE) {
 
+            snprintf(tree_str + strlen(tree_str), BUFSIZ - strlen(tree_str), "blob, %s, %s\n", tc->down[i]->hash, tc->down[i]->name);
+
+        } else if (tc->down[i]->type == DIR_SUBTREE) {
+
+            char *hash = tree_write(tc->down[i]->tree_cache, tree_arr);
+            snprintf(tree_str + strlen(tree_str), BUFSIZ - strlen(tree_str), "tree, %s, %s\n", hash, tc->down[i]->name);
+
+        }
+    }
+
+    insert_strArr(tree_arr, tree_str);
+    return hash_function(tree_str);
 
 }
 

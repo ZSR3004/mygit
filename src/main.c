@@ -17,11 +17,7 @@ int main(int argc, char *argv[]) {
 
     if (argc == 1) {
 
-        tree *t = init_tree(0, "some path", "some hash");
-        write_tree_to_file(t);
-        free_tree(t);
-
-        // commit_changes("This is my message");
+        commit_changes("This is my message");
         
     } else if (argc > 1) {
 

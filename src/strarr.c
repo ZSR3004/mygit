@@ -149,10 +149,11 @@ bool in_strArr(strArr *sa, dirent *item) {
  */
 void debug_print_strArr(strArr *sa) {
 
-    printf("Ignore List:\n");
+    printf("");
     for (int i = 0; i < sa->count; i++) {
-        printf("\t%s\n", sa->items[i]);
+        printf("<%s>\n", sa->items[i]);
     }
+    printf("\n");
 
 }
 

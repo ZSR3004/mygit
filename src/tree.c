@@ -10,7 +10,9 @@ tree *init_tree(OBJ_TYPE type, char *name, char *hash) {
 
 }
 
-void write_tree_to_file(tree *t) {
+void write_tree_to_file(OBJ_TYPE type, char *name, char *hash) {
+
+    tree *t = init_tree(type, name, hash);
 
     char *index_location = create_index_location(t->hash);
     create_directory(index_location);
@@ -29,6 +31,7 @@ void write_tree_to_file(tree *t) {
     close_file(file);
     free(index_location);
     free(final_path);
+    free_tree(t);
     return;
 
 }

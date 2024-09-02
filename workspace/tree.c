@@ -208,19 +208,19 @@ void build_trees(FILE *index, tree_cache *tc) {
 
 int main(void) {
 
-    FILE *index = fopen("index.txt", "r");
+        FILE *index = fopen("index.txt", "r");
 
-    tree_cache *working_tree = init_tree_cache();
-    working_tree->down = malloc(sizeof(subtree_cache) * 25);
+        tree_cache *working_tree = init_tree_cache();
+        working_tree->down = malloc(sizeof(subtree_cache) * 25);
 
-    build_trees(index, working_tree);
+        build_trees(index, working_tree);
 
-    printf("Printing Tree...\n");
-    print_tc(working_tree, 0);
+        printf("Printing Tree...\n");
+        print_tc(working_tree, 0);
 
 
-    recursive_free_tree_cache(working_tree);
-    fclose(index);
-    return 0;
+        recursive_free_tree_cache(working_tree);
+        fclose(index);
+        return 0;
 
 }

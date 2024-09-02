@@ -22,6 +22,7 @@
 
 #include "file.h"
 #include "staging.h"
-#include "../include/tree_cache.h"
+#include "tree.h"
+#include "tree_cache.h"
 
 void commit_changes(char *commit_message);

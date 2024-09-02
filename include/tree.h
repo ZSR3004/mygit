@@ -18,7 +18,7 @@ typedef struct {
 
 tree *init_tree(OBJ_TYPE type, char *name, char *hash);
 
-void write_tree_to_file(tree *t);
+void write_tree_to_file(OBJ_TYPE type, char *name, char *hash);
 
 void free_tree(tree *tO);
 
