@@ -154,6 +154,9 @@ void build_trees(FILE *index, tree_cache *tc, char *cwd) {
     }
 }
 
+/**
+ * Need to address all the little inconsistencies with the path naming conventions.
+ */
 char *tree_write(tree_cache *tc, strArr *tree_arr) {
     
     char *tree_str = malloc(BUFSIZ);
