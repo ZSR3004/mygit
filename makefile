@@ -35,7 +35,7 @@ $(OUTPUT): $(OBJS)
 
 # Run program
 run:
-	./bin/mygit
+	./bin/mygit $(ARGS)
 
 # Clean target
 clean:
