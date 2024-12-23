@@ -13,13 +13,7 @@
 #ifndef FILE_H
 #define FILE_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <dirent.h>
+#include "../common.h"
 
 DIR *create_directory(const char *path, mode_t mode);
 DIR* open_directory(const char *path);
