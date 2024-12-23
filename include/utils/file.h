@@ -15,13 +15,21 @@
 
 #include "../common.h"
 
-DIR *create_directory(const char *path, mode_t mode);
+/** 
+ * @brief The standard permissions for creating a file or directory.
+ * 
+ * Allows the creator to read and write into the file.
+ * 
+*/
+extern const int STANDARD_PERM;
+
+DIR *create_directory(const char *path);
 DIR* open_directory(const char *path);
 void close_directory(DIR *dir);
 
-FILE *create_file(const char *path, mode_t mode);
-FILE *open_file(const char *path, int flags);
-void close_file(int fd);
+FILE *create_file(const char *path);
+FILE *open_file(const char *path, char* flags);
+void close_file(FILE *file);
 
 char *get_cwd(void);
 
