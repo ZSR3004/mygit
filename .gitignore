@@ -6,6 +6,3 @@
 
 # The .mygit folder that is created when running the test. 
 /tests/test_repo_one/.mygit
-
-# A running list of ideas for improvement
-notes.txt
