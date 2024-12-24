@@ -3,20 +3,12 @@
 
 #include "../common.h"
 
-extern const int INIT_CAPACITY;
-extern const int GROWTH_FACTOR;
 
-typedef enum HASH_MATCH {
-    MATCH,
-    KEY_MATCH,
-    VAL_MATCH,
-    DIFF
-} HASH_MATCH;
 
-typedef struct kv {
+typedef struct keyval {
     char *key;
     char *val;
-} kv;
+} keyval;
 
 /*
  * If arr is a valid representation of an strArr, then
@@ -35,7 +27,7 @@ typedef struct kv {
  * 
 */
 typedef struct {
-    kv **items;
+    keyval **items;
     int count;
     int capacity;
 } darr;
@@ -44,8 +36,10 @@ darr *darr_init();
 darr *darr_grow(darr *arr);
 void darr_free(darr *arr);
 
-void darr_insert(kv *item, darr *arr);
-kv *darr_lookup(char *key, darr *arr);
-void darr_delete(char *key, darr *arr);
+void darr_insert(keyval *item, darr *arr);
+keyval *darr_lookup(char *k, darr *arr);
+void darr_delete(char *k, darr *arr);
+
+HASH_MATCH cmp_kv(struct keyval *kv1, keyval *kv2);
 
 #endif // DARR_H
