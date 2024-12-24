@@ -10,13 +10,15 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <dirent.h>
+#include <stddef.h>
 
 #include "add.h"
 #include "commit.h"
 #include "init.h"
 #include "staging.h"
 #include "utils/file.h"
-#include "utils/hash/hash_map.h"
+#include "utils/hash.h"
+#include "utils/darr.h"
 #include "objects/blob.h"
 #include "objects/commitObj.h"
 #include "objects/tree.h"

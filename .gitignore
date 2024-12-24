@@ -6,3 +6,7 @@
 
 # The .mygit folder that is created when running the test. 
 /tests/test_repo_one/.mygit
+
+# These are files I'm messing around with. I'd rather not include them since it could break the program, and I'd like to keep the
+# Git history to only working version.
+darr.c
