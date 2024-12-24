@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <stddef.h>
+#include <limits.h>
 
 #include "add.h"
 #include "commit.h"

@@ -20,4 +20,7 @@ void bt_insert(FILE *file, node *bt);
 void bt_delete(char *hash, node *bt);
 node *bt_lookup(char *hash, node *bt);
 
+void bt_serialize(node *root);
+node *bt_deserialize();
+
 #endif // BLOB_H

@@ -5,8 +5,8 @@
 
 FILE *create_blank_index();
 
-void index_add();
+void index_add(char *path, FILE *file);
 void index_delete();
-int index_lookup();
+char *index_lookup();
 
 #endif // STAGING_H

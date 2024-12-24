@@ -9,7 +9,7 @@
  * 
  */
 
-#include "../../include/common.h"
+#include "../include/common.h"
 
 const int STANDARD_PERM = 0755;
 

@@ -10,6 +10,8 @@ node *init_bt(FILE *file) {
 }
 
 void free_bt(node *bt) {
+    if (bt == NULL) return;
+    
     free(bt->contents);
     free(bt->hash);
 
@@ -75,4 +77,12 @@ node *bt_lookup(char *hash, node *bt) {
     } else {
         return bt_lookup(hash, bt->right);
     }
+}
+
+void bt_serialize(node *root) {
+    return;
+}
+
+node *bt_deserialize() {
+    return NULL;
 }

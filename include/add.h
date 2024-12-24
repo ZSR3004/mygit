@@ -3,9 +3,9 @@
 
 #include "common.h"
 
-void add_cases();
+void add_cases(char *arg);
 
-int add_file();
-int add_dir();
+void add_file(char *path);
+void add_dir(char *path);
 
 #endif // ADD_H
