@@ -5,24 +5,19 @@
 
 typedef struct node {
     
-    char *path;
     char *hash;
+    char *contents;
 
     struct node *left;
     struct node *right;
 
 } node;
 
-char *create_blob(FILE *file);
-void free_blob(char *blob);
+node *init_bt(FILE *file);
+void free_bt(node *bt);
 
-node *init_bt();
-void free_bt();
-
-void bt_insert();
-void bt_delete();
-node *bt_lookup();
-
-void bt_write();
+void bt_insert(FILE *file, node *bt);
+void bt_delete(char *hash, node *bt);
+node *bt_lookup(char *hash, node *bt);
 
 #endif // BLOB_H
