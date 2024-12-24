@@ -1,5 +1,4 @@
-#include "../include/common.h"
-#include "../include/utils/hash.h"
+#include "../../include/common.h"
 
 #define HASHMAP_SIZE 200
 
