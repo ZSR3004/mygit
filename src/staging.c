@@ -1,15 +1,13 @@
 #include "../include/common.h"
 
-FILE *create_blank_index();
-
-void index_add(char *path, FILE *file) {
-    return;
+void create_blank_index() {
+    FILE *index = open_file(INDEX_PATH, "w");
+    close_file(index);
 }
 
-void index_delete() {
-    return;
-}
-
-char *index_lookup() {
-    return;
+void index_add(FILE *file, char *path) {
+    fprintf(file, "%s;%s\n", 
+            path,
+            object_hash(get_file_text(file))
+        );
 }

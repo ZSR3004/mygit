@@ -3,10 +3,8 @@
 
 #include "common.h"
 
-FILE *create_blank_index();
+void create_blank_index();
 
-void index_add(char *path, FILE *file);
-void index_delete();
-char *index_lookup();
+void index_add(FILE *file, char *path);
 
 #endif // STAGING_H

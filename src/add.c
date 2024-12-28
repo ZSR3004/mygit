@@ -1,6 +1,5 @@
 #include "../include/common.h"
 
-
 void add_cases(char *arg) {
      if (strcmp(arg, ".") == 0) {
         char *cwd = get_cwd();
@@ -15,7 +14,7 @@ void add_cases(char *arg) {
 
 void add_file(char *path) {
     FILE *file = open_file(path, "r");
-    index_add(path, file);
+    index_add(file, path);
     node *bt = bt_deserialize();
 
     bt_insert(file, bt);

@@ -23,4 +23,6 @@
 #include "objects/commitObj.h"
 #include "objects/tree.h"
 
+#define INDEX_PATH "/.mygit/index.txt"
+
 #endif // COMMON_H
