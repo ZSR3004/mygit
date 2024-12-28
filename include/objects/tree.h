@@ -5,7 +5,6 @@
  * @version 0.1
  * @date 2024-12-28
  * 
- /**
  * Below are the functions related to tree objects.
  * 
  * A tree object is the directory equivalent to the blob object. Basically, its a text file that holds all the files within
