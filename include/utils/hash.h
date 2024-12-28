@@ -1,3 +1,17 @@
+/**
+ * @file hash.h
+ * @author Ziyad Rahman
+ * @brief Handles hashing and the hashtable.
+ * @version 0.1
+ * @date 2024-12-28
+ * 
+ * This file handles hashing for the program. Currently, there is a simplified implementation, but 
+ * I plan to replace it with a SHA-1 hash like Git uses.
+ * 
+ * @todo Replace hash function with SHA-1.
+ * 
+ */
+
 #ifndef HASH_H
 #define HASH_H
 

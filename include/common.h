@@ -19,7 +19,7 @@
 #include "staging.h"
 #include "utils/file.h"
 #include "utils/hash.h"
-#include "objects/blob.h"
+#include "objects/objects.h"
 #include "objects/commitObj.h"
 #include "objects/tree.h"
 
